@@ -1,38 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+body {
+  font-size: 16px;
+  background: black;
+  color: white;
+  font-family: "Roboto";
+  overflow-x: hidden;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100vw;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  position: relative;
+  top: 5rem;
+  height: 10vh;
+  width: 70vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Movies Container */
+
+.movies_container {
+  position: relative;
+  top: 10rem;
+  width: 70vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  overflow: hidden;
+}
+
+/* Movie */
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  background: black;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);
+  transform: translateX(-50%);
+  transition: 0.5s;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.card:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.card:hover .title {
+  padding-bottom: 50px;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.card .title {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 30px 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8153401008841037) 64%,
+    rgba(0, 212, 255, 0) 100%
+  );
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card .title p {
+  font-size: 1rem;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  body {
+    font-size: 6px;
   }
-  to {
-    transform: rotate(360deg);
+  .movies_container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+
+  .card {
+    width: 200px;
+    height: 350px;
+  }
+
+  .card .title p {
+    font-size: 0.8rem;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 10px;
+  }
+
+  .movies_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 25px;
+  }
+
+  .card {
+    width: 300px;
+    height: 450px;
+  }
+
+  .card .title p {
+    font-size: 1rem;
   }
 }
